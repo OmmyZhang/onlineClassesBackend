@@ -5,12 +5,15 @@ Part of online classes, work for sjx.
 
 ## 接口描述
 
++ /getid/
+  + /getid/ [get] 获取openid
+    - appid: string
+    - secret: string
+    - loginCode.code : string
+    - 返回: {openid}
+
+
 + /student
-  + /student/ [get] 获取openid
-    + appid: string
-    + secret: string
-    + loginCode.code : string
-    + 返回{openid}
   + /student/ [post] 创建新用户
     + openid: string
     + invite code: string
