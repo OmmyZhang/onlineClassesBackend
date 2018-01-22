@@ -1,5 +1,5 @@
 # onlineClassesBackend
-Part of online classes, work for sxj.
+Part of online classes, work for sjx.
 
 [关于获取openid](https://www.jianshu.com/p/9b5b80ae301b)
 
@@ -19,7 +19,7 @@ Part of online classes, work for sxj.
     + openid： string
     + process: int
 + /file
-  + /file/{fileName}/ get 下载文件
+  + /file/{fileName}/ [get] 下载文件
     + openid
 
 
