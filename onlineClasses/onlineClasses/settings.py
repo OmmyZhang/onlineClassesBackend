@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'getid.apps.GetidConfig'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'getid.apps.GetidConfig',
+    'student.apps.StudentConfig',
+    'course.apps.CourseConfig'
 ]
 
 REST_FRAMEWORK = {

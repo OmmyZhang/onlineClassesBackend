@@ -9,26 +9,27 @@ Part of online classes, work for sjx.
   + /getid/ [get] 获取openid
     - appid: string
     - secret: string
-    - loginCode.code : string
-    - 返回: {openid}
+    - js_code: string
+    - 返回:  原样返回api.wx.qq.com给的东西
 
 
 + /student
   + /student/ [post] 创建新用户
     + openid: string
-    + invite code: string
+    + invite_code: string
     + username: string
-  + /student/ [get] 所有用户列表(限管理员)
+  + /student/ [get] 所有用户列表
     + 返回: [{openid, username}]
   + /student/{openid}/ [get] 查询某人的所有课程及进度
     + 返回: [{courseName, process}]
 + /course
   + /course/process/ [post] 设置某人的某门课进度
-    + courseName： string
+    + course_name： string
     + openid： string
     + process: int
-+ /file
-  + /file/{fileName}/ [get] 下载文件
+
+
+  + /course/file/{fileName}/ [get] 下载文件
     + openid: string
 
 
