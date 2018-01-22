@@ -6,17 +6,19 @@ Part of online classes, work for sjx.
 ## 接口描述
 
 + /student
-  + /student/ [post] 获取openid（上线的时候openid貌似需要第三方服务器才能获取到qaq）
-    +appid: string
-    +secret: string
-    +js_code: loginCode.code (string?)
-  + /student/ [post] 创建新用户
+  + /student/ [get] 获取openid
+    + appid: string
+    + secret: string
+    + loginCode.code : string
+    + 返回{openid}
+  + /student/ [post] 创建新用户
     + openid: string
     + invite code: string
     + username: string
   + /student/ [get] 所有用户列表(限管理员)
+    + 返回: [{openid, username}]
   + /student/{openid}/ [get] 查询某人的所有课程及进度
-    + [{courseName, process}]
+    + 返回: [{courseName, process}]
 + /course
   + /course/process/ [post] 设置某人的某门课进度
     + courseName： string
@@ -24,7 +26,7 @@ Part of online classes, work for sjx.
     + process: int
 + /file
   + /file/{fileName}/ [get] 下载文件
-    + openid
+    + openid: string
 
 
 
