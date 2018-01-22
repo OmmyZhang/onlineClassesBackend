@@ -6,7 +6,11 @@ Part of online classes, work for sjx.
 ## 接口描述
 
 + /student
-  + /student/ [post] 创建新用户
+  + /student/ [post] 获取openid（上线的时候openid貌似需要第三方服务器才能获取到qaq）
+    +appid: string
+    +secret: string
+    +js_code: loginCode.code (string?)
+  + /student/ [post] 创建新用户
     + openid: string
     + invite code: string
     + username: string
