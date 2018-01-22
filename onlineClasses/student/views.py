@@ -3,6 +3,7 @@ from .models import Student, InviteCode, StudentSerializer
 from rest_framework.response import Response
 from rest_framework import status,permissions,serializers
 from rest_framework.views import APIView
+from course.models import CourseRecord
 
 class StudentList(APIView):
     def post(self, request, format=None):
@@ -32,7 +33,13 @@ class StudentDetail(APIView):
     def get(self, request, openid, format=None):
         try:
             stu = Student.objects.get(openid=openid)
-            return Response(openid)
-        except:
-            return Response({"info":"invalid openid"},
+            rec = [{
+                "course_name" :r.course_name,
+                "process" : r.process
+                } 
+                    for r in CourseRecord.objects.filter(openid=openid)
+            ]
+            return Response(rec)
+        except Exception as e:
+            return Response({"info":repr(e)},
                     status=status.HTTP_400_BAD_REQUEST)

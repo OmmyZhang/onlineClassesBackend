@@ -1,14 +1,12 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import generics
+from .models import CourseRecord, CRSerializer
 
-# Create your views here.
-
-class Process(APIView):
-    def post(self, request, format=None):
-        body = request.data
-
-        return Response("ok")
+class CRList(generics.ListCreateAPIView):
+    queryset = CourseRecord.objects.all()
+    serializer_class = CRSerializer
 
 class FileData(APIView):
     def get(self, request, format=None):
