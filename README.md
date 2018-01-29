@@ -19,31 +19,31 @@ Part of online classes, work for sjx.
 
 **实际部署时请在onlineClass/setting.py中把`DEBUG`设为False，`ALLOWED_HOST`中添加实际部署的域名。**
 
+实际上线后建议关闭调试用接口
+
 ## 接口描述
 
 + /getid
   + /getid/login [get] 获取3rd_session
     - code: string
-    - 返回:  3rd_session (string，随机生成)
+    - 返回: 3rd_session (string，随机生成)
 
 
 ![](https://mp.weixin.qq.com/debug/wxadoc/dev/image/login.png?t=2018125)
 
 + /student
-  + /student/ [post] 创建新用户
-    + code: string
-    + invite_code: string
-    + username: string
-    + 返回: 3rd_session
   + /student/ [get] 所有用户列表   *仅用于调试*
     + 返回: [{openid, username}]
-  + /student/{3rd_session}/ [get] 查询我的所有课程及进度
-    + 返回: [{course_name, process}]
+  + /student/{3rd_session}/ [get] 查询我的信息
+    + 返回:{username, [{course_name, process}]}
+  + /student/{3rd_session}/ [post] 创建新用户(我)
+    - username: string
 + /course
   + /course/ [post] 设置我的某门课进度
-    + course_name： string
-    + 3rd_session： string
+    + course_name: string
+    + 3rd_session: string
     + process: int
+    + invite_code: string (如果不是新增给任意串即可)
   + /course [get] 查看所有记录   *仅用于调试*
 
 
@@ -70,6 +70,6 @@ Part of online classes, work for sjx.
 + AppInfo
   + appid
   + secret
-+ SessionRecord
++ SessionRecord  //暂时不准备实现过期机制..
   + 3rd_session
   + openid
