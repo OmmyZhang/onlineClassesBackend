@@ -24,9 +24,9 @@ Part of online classes, work for sjx.
 ## 接口描述
 
 + /getid
-  + /getid/login [get] 获取3rd_session
+  + /getid/login [get] 获取my_session
     - code: string
-    - 返回: 3rd_session (string，随机生成)
+    - 返回: my_session (string，随机生成)
 
 
 ![](https://mp.weixin.qq.com/debug/wxadoc/dev/image/login.png?t=2018125)
@@ -34,21 +34,21 @@ Part of online classes, work for sjx.
 + /student
   + /student/ [get] 所有用户列表   *仅用于调试*
     + 返回: [{openid, username}]
-  + /student/{3rd_session}/ [get] 查询我的信息
+  + /student/{my_session}/ [get] 查询我的信息
     + 返回:{username, [{course_name, process}]}
-  + /student/{3rd_session}/ [post] 创建新用户(我)
+  + /student/{my_session}/ [post] 创建新用户(我)
     - username: string
 + /course
   + /course/ [post] 设置我的某门课进度
     + course_name: string
-    + 3rd_session: string
+    + my_session: string
     + process: int
     + invite_code: string (如果不是新增给任意串即可)
   + /course [get] 查看所有记录   *仅用于调试*
 
 
   + /course/file/{fileName}/ [get] 下载文件，如果选了这门课
-    + 3rd_session: string
+    + my_session: string
 
 
 
@@ -71,5 +71,5 @@ Part of online classes, work for sjx.
   + appid
   + secret
 + SessionRecord  //暂时不准备实现过期机制..
-  + 3rd_session
+  + my_session
   + openid
