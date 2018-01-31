@@ -43,7 +43,7 @@ Part of online classes, work for sjx.
     + course\_name: string
     + my\_session: string
     + process: int
-    + invite\_code: string (如果不是新增给任意串即可)
+    + invite\_code: string (如果不是新增给任意串即可 update:其实不给也可以)
   + /course [get] 查看所有记录   *仅用于调试*
 
 
