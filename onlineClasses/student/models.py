@@ -10,6 +10,9 @@ class Student(models.Model):
 class InviteCode(models.Model):
     code = models.CharField(max_length=127)
 
+    def __str__(self):
+        return self.code
+
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student

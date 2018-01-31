@@ -19,6 +19,6 @@ class File(models.Model):
     available_time = models.DateTimeField()
     course_name = models.CharField(max_length=127)
     def __str__(self):
-        return self.name + ' in ' + self.course_name
+        return self.name + ' in ' + self.course_name + ' @' + str(self.available_time)
 
 
