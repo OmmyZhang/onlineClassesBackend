@@ -70,6 +70,7 @@ Part of online classes, work for sjx.
 + AppInfo
   + appid
   + secret
-+ SessionRecord  //暂时不准备实现过期机制..
++ SessionRecord  // 3h过期
   + 3rd_session
   + openid
+  + activeTime
