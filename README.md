@@ -35,7 +35,7 @@ Part of online classes, work for sjx.
   + /student/ [get] 所有用户列表   *仅用于调试*
     + 返回: [{openid, username}]
   + /student/{my\_session}/ [get] 查询我的信息
-    + 返回:{username, [{course\_name, process}]}
+    + 返回:{username, record: [{course\_name, process}]}
   + /student/{my\_session}/ [post] 创建新用户(我)
     - username: string
 + /course

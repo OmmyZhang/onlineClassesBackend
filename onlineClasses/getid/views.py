@@ -12,6 +12,12 @@ import json,string,random,datetime
 def rand_str(size=32, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
+def session2openid(session):
+    SessionRecord.objects.filter(active_time__lte = datetime.datetime.now() - datetime.timedelta(hours=3)).delete()
+    if SessionRecord.objects.filter(my_session=session).exists():
+        return SessionRecord.objects.filter(my_session=session)[0].openid
+    else:
+        return None
 
 class Openid(APIView):
     def get(self, request, format=None):

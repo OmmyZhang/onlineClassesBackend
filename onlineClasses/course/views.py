@@ -10,6 +10,14 @@ class CRList(generics.ListCreateAPIView):
     queryset = CourseRecord.objects.all()
     serializer_class = CRSerializer
 
+
+    #    ic = request.data.get('invite_code')
+    #    if not InviteCode.objects.filter(code = ic).exists():
+    #        return Response({'info':'invalid invite code'},
+    #                status=status.HTTP_400_BAD_REQUEST)
+    #    
+    #    InviteCode.objects.filter(code = ic).delete()
+
 class FileData(APIView):
     def get(self, request, filename, format=None):
         openid = request.GET['openid']
