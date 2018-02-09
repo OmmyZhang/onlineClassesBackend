@@ -28,7 +28,7 @@ class Openid(APIView):
         ai = AppInfo.objects.all()[0]
 
         data = {
-                'code': code,
+                'js_code': code,
                 'grant_type': 'authorization_code',
                 'appid': ai.appid,
                 'secret': ai.secret
