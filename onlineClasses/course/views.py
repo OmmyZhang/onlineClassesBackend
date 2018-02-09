@@ -50,7 +50,14 @@ class CRList(APIView):
 
 class FileData(APIView):
     def get(self, request, filename, format=None):
-        openid = request.GET['openid']
+        #openid = request.GET['openid']
+        
+        ms = request.GET['my_session']
+        openid = session2openid(ms)
+        if openid == None:
+            return Response({"error":"No session, login first"},
+                    status=status.HTTP_400_BAD_REQUEST)
+        
 
         if File.objects.filter(name=filename).exists():
             f = File.objects.filter(name=filename)[0]
